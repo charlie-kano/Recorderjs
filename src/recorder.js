@@ -89,7 +89,7 @@ export class Recorder {
                     interleaved = buffers[0];
                 }
 
-                var downsampledBuffer = downsampleBuffer(interleaved, targetRate);
+                var downsampledBuffer = downsampleBuffer(interleaved, 8000);
                 var dataview = encodeWAV(downsampledBuffer);
                 // let dataview = encodeWAV(interleaved);
                 let audioBlob = new Blob([dataview], { type: type });
@@ -156,7 +156,7 @@ export class Recorder {
             }
 
             function downsampleBuffer(buffer, rate) {
-                console.log('downsample called')
+                console.log('downsample called', rate, 'rate')
                 if (rate == sampleRate) {
                     return buffer;
                 }
