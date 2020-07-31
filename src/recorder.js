@@ -156,6 +156,7 @@ export class Recorder {
             }
 
             function downsampleBuffer(buffer, rate) {
+                console.log('downsample called')
                 if (rate == sampleRate) {
                     return buffer;
                 }
